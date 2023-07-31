@@ -19,13 +19,14 @@ import {
 
 const URL_USER = `${process.env.REACT_APP_URL}/api/v1/user`;
 
-const token = JSON.parse(localStorage.getItem("token"));
-const options = {
-    headers: {"Authorization" : token}
-};
+
 
 // Load Users
 export const loadUsers = () => async(dispatch) =>{
+    const token = JSON.parse(localStorage.getItem("token"));
+    const options = {
+        headers: {"Authorization" : token}
+    };
     try {
         dispatch({type:LOAD_USERS_REQUEST});
         
@@ -40,6 +41,10 @@ export const loadUsers = () => async(dispatch) =>{
 
 // Load User Details
 export const loadUserDetails = (id) => async(dispatch) =>{
+    const token = JSON.parse(localStorage.getItem("token"));
+    const options = {
+        headers: {"Authorization" : token}
+    };
     try {
         dispatch({type:LOAD_USER_DETAILS_REQUEST});
         
@@ -54,6 +59,10 @@ export const loadUserDetails = (id) => async(dispatch) =>{
 
 // Load User Details
 export const singleUserDelete = (id) => async(dispatch) =>{
+    const token = JSON.parse(localStorage.getItem("token"));
+    const options = {
+        headers: {"Authorization" : token}
+    };
     try {
         dispatch({type:SINGLE_USER_DELETE_REQUEST});
         
@@ -68,6 +77,10 @@ export const singleUserDelete = (id) => async(dispatch) =>{
 
 // Load User Details
 export const updateUserRole = (id,role) => async(dispatch) =>{
+    const token = JSON.parse(localStorage.getItem("token"));
+    const options = {
+        headers: {"Authorization" : token}
+    };
     console.log(id,role);
     try {
         dispatch({type:UPDATE_USER_ROLE_REQUEST});

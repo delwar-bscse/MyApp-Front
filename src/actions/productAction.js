@@ -2,13 +2,7 @@ import axios from 'axios';
 import {
     ALL_PRODUCT_REQUEST,
     ALL_PRODUCT_SUCCESS,
-    ALL_PRODUCT_FAIL,
-
-    PRODUCT_DETAILS_REQUEST,
-    PRODUCT_DETAILS_SUCCESS,
-    PRODUCT_DETAILS_FAIL,
-    
-    CLEAR_ERRORS
+    ALL_PRODUCT_FAIL
 } from '../constants/productConstants';
 
 const URL_PRODUCT = `${process.env.REACT_APP_URL}/api/v1/product`;
