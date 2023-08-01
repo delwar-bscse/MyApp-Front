@@ -51,7 +51,7 @@ export const register = (userData) => async(dispatch) =>{
         
     } catch (error) {
         dispatch({type:REGISTER_FAIL, payload:error.response.data.message});
-        toast.info("Account isn't created");
+        toast.warn("Account isn't created");
     };
 };
 
