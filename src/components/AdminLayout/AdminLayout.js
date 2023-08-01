@@ -1,12 +1,14 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import {Helmet} from 'react-helmet';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminMenu from './AdminMenu';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadUsers } from '../../actions/usersAction';
+import { FcMenu } from 'react-icons/fc';
 
 const AdminLayout = ({children, description, keywords, author, title}) => {
+  const [ menuBtn,setMenuBtn] = useState(false);
   const dispatch = useDispatch();
   const {users} = useSelector(state=>state.users);
   const token = JSON.parse(localStorage.getItem("token"));
@@ -27,10 +29,11 @@ const AdminLayout = ({children, description, keywords, author, title}) => {
       </Helmet>
       <main>
         <div className='container-fluid adminPanel'>
-          <h1 className='text-center border-bottom py-2 position-sticky top-0'>Admin Panel</h1>
-          <div className='row'>
-            <div className='col-2 h-100 adminMenu'><AdminMenu/></div>
-            <div className='col-10'>{children}</div>
+          <button className='adminMenuBtn' onClick={()=>setMenuBtn(!menuBtn)}><FcMenu/></button>
+          <h1 className='text-center border-bottom py-2 position-sticky top-0' style={{height:"57px"}}>Admin Panel</h1>
+          <div className=''>
+            <div className={menuBtn ? "adminMenu adminMenu2" : "adminMenu adminMenu1"}><AdminMenu/></div>
+            <div>{children}</div>
           </div>
         </div>
 

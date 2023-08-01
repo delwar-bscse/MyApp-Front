@@ -72,7 +72,6 @@ const Products = () => {
 
         <div className='d-flex justify-content-between my-3'>
           <div>
-            <p className='d-inline me-1'>Select Category : </p>
             <Select placeholder="Select a category" onChange={(value)=>setCategory(value)}>
               <Option value="">All Category</Option>
                 {categories?.map((c)=>(

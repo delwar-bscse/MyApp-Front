@@ -49,8 +49,8 @@ const HandleCategory = () => {
   return (
     <AdminLayout title="Handle Caregory">
       <div className='container p-3'>
-        <div className='w-75 mx-auto'>
-              <h1>Manage Category</h1>
+        <div className='w-100 mx-auto' style={{maxWidth:"350px"}}>
+              <h1 className='text-center'>Manage Category</h1>
               <div className='w-100 py-3'>
                 <CategoryForm handleSubmit={handleSubmit} value={name} setValue={setName}/>
               </div>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Rate, Button, Modal, Input } from 'antd';
+import { Rate } from 'antd';
 import axios from 'axios';
 import AdminLayout from '../AdminLayout/AdminLayout';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getProductDetails } from '../../actions/productAction';
 import { allCategory } from '../../actions/categoryAction';
 
@@ -54,7 +54,7 @@ const ProductDetails = () => {
 
   return (
     <AdminLayout>
-      <div className='container mb-3'>
+      <div className='container-fluid mb-3'>
         <h2 className='text-center mt-3'>Product Details</h2>
 
         <div className='card p-3 mx-auto' style={{"width":"100%","maxWidth":"400px"}}>
@@ -77,35 +77,37 @@ const ProductDetails = () => {
         </div>
 
         <div className='my-5'>
-          {!product?.reviews?.length ? <p>No review abailable</p> : <table className="table">
-            <thead>
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Rating</th>
-                <th scope="col">Comment</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {product?.reviews?.map((review,i)=>(
-                <tr key={i}>
-                  <th scope="row">{review.name}</th>
-                  <td>
-                    <Rate 
-                      allowHalf
-                      defaultValue={review?.rating}
-                      disabled={true}
-                    />
-                  </td>
-                  <td>{review.comment.substring(0,20)}...</td>
-                  <td>
-                    <button className='btn btn-secondary py-1' onClick={()=>deleteReview(review._id)}>Delete</button>
-                  </td>
+          {!product?.reviews?.length ? <p>No review abailable</p> : <div className='overflow-x-scroll'>
+            <table className="table table-striped w-100" style={{minWidth:"600px"}}>
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Rating</th>
+                  <th scope="col">Comment</th>
+                  <th scope="col">Action</th>
                 </tr>
-              ))}
-              
-            </tbody>
-          </table>}
+              </thead>
+              <tbody>
+                {product?.reviews?.map((review,i)=>(
+                  <tr key={i}>
+                    <th scope="row">{review.name}</th>
+                    <td>
+                      <Rate 
+                        allowHalf
+                        defaultValue={review?.rating}
+                        disabled={true}
+                      />
+                    </td>
+                    <td>{review.comment.substring(0,20)}...</td>
+                    <td>
+                      <button className='btn btn-secondary py-1' onClick={()=>deleteReview(review._id)}>Delete</button>
+                    </td>
+                  </tr>
+                ))}
+                
+              </tbody>
+            </table>
+          </div>}
         </div>
       </div>
     </AdminLayout>

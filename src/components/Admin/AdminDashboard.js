@@ -64,7 +64,7 @@ const AdminDashboard = () => {
 
   return (
     <AdminLayout title='Admin Dashboard'>
-      <div className='container-fluid w-75'>
+      <div className='container-fluid w-100 mx-auto' style={{maxWidth:"600px"}}>
         <div>
           <div className='my-3'>
             <Row gutter={16}>
@@ -107,8 +107,8 @@ const AdminDashboard = () => {
             </div>
             <div className='text-center'>
               <Space wrap>
-                <Progress type="circle" percent={productStock} size={200} strokeColor={"blue"}/>
-                <Progress type="circle" percent={100-productStock} size={200} strokeColor={"red"}/>
+                <Progress type="circle" percent={productStock} size={220} strokeColor={"blue"}/>
+                <Progress type="circle" percent={100-productStock} size={220} strokeColor={"red"}/>
               </Space>
             </div>
           </div>

@@ -18,7 +18,8 @@ const AllUsers = () => {
     <AdminLayout>
       <div className='container-fluid'>
         <h2 className='text-center'>All Users</h2>
-        <table className='table mx-auto'>
+        <div className='overflow-x-scroll'>
+        <table className='table table-striped mx-auto w-100 p-2' style={{minWidth:"720px"}}>
           <thead>
               <tr>
                 <th scope="col">Image</th>
@@ -40,6 +41,7 @@ const AllUsers = () => {
             ))}
             </tbody>
         </table>
+        </div>
       </div>
     </AdminLayout>
   );

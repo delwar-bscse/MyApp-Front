@@ -78,7 +78,40 @@
     z-index: 10;
     background-color: white;
 }
+.adminMenuBtn{
+    position:fixed;
+    top:-8px;
+    left:10px;
+    z-index: 11;
+    padding:3px 5px;
+    border:none;
+    background-color: transparent;
+    font-size: 36px;
+}
 .adminMenu{
-    position:sticky;
-    top:4.5rem;
+    position:fixed;
+    background-color: rgb(235, 235, 235);
+    top:57px;
+    transition: 0.5s;
+    z-index: 10;
+    min-height: 100vh;
+    padding-bottom: 57px;
+}
+.adminMenu div a{
+    padding:5px 10px;
+    width:150px;
+    margin: 1px;
+    text-decoration: none;
+    color:black;
+    background-color: rgb(213, 223, 225);
+}
+.adminMenu div a:hover{
+    color:rgb(118, 97, 97);
+    background-color: rgb(234, 243, 245);
+}
+.adminMenu1{
+    left:-200px;
+}
+.adminMenu2{
+    left:0px;
 }

@@ -117,7 +117,7 @@ const Cart = () => {
               <td>{product?.name}</td>
               <td>{product?.price}</td>
               <td id='quantitySec'>
-                <input type='number' style={{width:55}} value={product?.quantity} onChange={(e)=>productQuantity(e,product?._id)} />
+                <input type='number' style={{width:50,marginLeft:1}} value={product?.quantity} onChange={(e)=>productQuantity(e,product?._id)} />
               </td>
               <td>{product?.price*product?.quantity}</td>
               <td><button className='btn btn-info btn-sm' onClick={()=>removeItem(product?._id)}>Remove</button></td>

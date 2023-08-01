@@ -27,12 +27,12 @@ const UserDetails = () => {
   return (
     <AdminLayout>
       <h2 className='text-center my-3'>User Infomation</h2>
-      {isPanding ? <Loading/> : <div className='mx-auto w-75'>
+      {isPanding ? <Loading/> : <div className='mx-auto w-100' style={{maxWidth:"500px"}}>
       <div className='row  border p-3'>
-        <div className='col-6 p-0'>
+        <div className='col-md-6 p-0 mb-3'>
           <img className='w-100' src={singleUser?.avatar?.url} alt='Profile'/>
         </div>
-        <div className='col-6 p-0 ps-3 position-relative'>
+        <div className='col-md-6 p-0 ps-3 position-relative'>
           <h3 className='fs-4'>Name: {singleUser?.name}</h3>
           <p>Email: {singleUser?.email}</p>
           <div className='d-flex align-items-center'>
@@ -42,7 +42,7 @@ const UserDetails = () => {
               <option value='admin'>Admin</option>
             </select>
           </div>
-          <button className='position-absolute start-50 translate-middle-x p-1 rounded btn btn-danger' style={{bottom:20,width:100}} onClick={()=>handleDelete(singleUser._id)}>Delete</button>
+          <button className='mt-3 rounded btn btn-danger' style={{bottom:20,width:100}} onClick={()=>handleDelete(singleUser._id)}>Delete</button>
         </div>
       </div>
       </div>

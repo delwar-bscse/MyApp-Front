@@ -29,7 +29,7 @@ const AdminOrders = () => {
     },[]);
 
     const changeStatus = async(orderId,event) => {
-      console.log(orderId, event.target.value);
+      // console.log(orderId, event.target.value);
       try {
         const token = JSON.parse(localStorage.getItem("token"));
         const tokenOptions = {
@@ -61,9 +61,10 @@ const AdminOrders = () => {
 
   return (
     <AdminLayout>
-    <div className='container-fluid'>
+    <div className='container-fluid' style={{minHeight:"120vh", paddingBottom:"200px"}}>
       <h1 className='text-center my-2'>Orders List</h1>
-      <table className="table mx-auto w-100">
+      <div className='overflow-x-scroll'>
+      <table className="table table-striped mx-auto w-100" style={{minWidth:"720px"}}>
         <thead>
             <tr>
               <th scope="col">OrderID</th>
@@ -82,7 +83,7 @@ const AdminOrders = () => {
               <td>{item?.shippingInfo?.contact}</td>
               <td>{item?.totalPrice}</td>
               <td>
-                <select className="form-select" onChange={(event)=>changeStatus(item?._id,event)} aria-label="Default select example">
+                <select className="form-select" style={{minWidth:100, maxWidth:130}} onChange={(event)=>changeStatus(item?._id,event)} aria-label="Default select example">
                   <option defaultValue={item?.orderStatus}>{item?.orderStatus}</option>
                   <option value="Processing">Processing</option>
                   <option value="Shipped">Shipped</option>
@@ -98,6 +99,7 @@ const AdminOrders = () => {
             ))}
         </tbody>
       </table>
+      </div>
     </div>
     </AdminLayout>
   )

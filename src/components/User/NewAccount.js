@@ -12,7 +12,6 @@ import { useNavigate } from 'react-router-dom';
 
 
 const NewAccount = () => {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const [avatar,setAvater]=useState();

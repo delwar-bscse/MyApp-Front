@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
+
 import { 
     REGISTER_REQUEST,
     REGISTER_SUCCESS,
@@ -53,21 +55,17 @@ export const register = (userData) => async(dispatch) =>{
 
 // Login
 export const login = (email, password) => async(dispatch) =>{
-    const token = JSON.parse(localStorage.getItem("token"));
-    const options = {
-        headers: {"Authorization" : token}
-    };
     try {
         dispatch({type:LOGIN_REQUEST});
 
         const {data} = await axios.post(`${URL_USER}/login`, {email,password});
-        
+        toast.success("Log In Successfully")
         localStorage.setItem('token', JSON.stringify(data.token));
-
         dispatch({type:LOGIN_SUCCESS});
         
     } catch (error) {
         dispatch({type:LOGIN_FAIL, payload:error.response.data.message});
+        toast.warn("Wrong email or password")
     };
 };
 

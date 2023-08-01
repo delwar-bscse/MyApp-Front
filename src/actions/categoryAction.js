@@ -40,7 +40,6 @@ export const createCategory = (name) => async(dispatch) =>{
 
 // Update Category
 export const updateCategory = (id,name) => async(dispatch) =>{
-    console.log(id,name);
     try {
         dispatch({type:UPDATE_CATEGORY_REQUEST});
         

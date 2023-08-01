@@ -89,7 +89,7 @@ const Home = () => {
             </div>
             
             <nav aria-label="Page navigation example">
-              <div className="pagination my-3 w-25 m-auto">
+              <div className="pagination d-flex justify-content-center my-3">
                 <button disabled={currentPage<=1} onClick={()=>{setCurrentPage(currentPage-1)}}  className="page-item btn btn-success rounded-0 px-3 mx-1">Prev</button>
 
                 <button disabled={filterProductsCount<3} onClick={()=>{setCurrentPage(currentPage+1)}} className="page-item btn btn-success rounded-0 px-3 mx-1">Next</button>

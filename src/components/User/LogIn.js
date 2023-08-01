@@ -14,15 +14,14 @@ const LogIn = () => {
 
     const loginSubmit = async(e) =>{
         e.preventDefault();
-        dispatch(login(loginEmail,loginPassword));
-        toast.success("Log In Successfully")
+        await dispatch(login(loginEmail,loginPassword));
         setTimeout(()=>navigate("/"),1000);
     };
 
   return (
     <Layout title={"Login User"}>
-    <div className='container'>
-        <div className='border border-2 p-3 mx-auto mt-5' style={{width:300}} >
+    <div className='container-fluid'>
+        <div className='border border-2 p-3 mx-auto mt-5' style={{maxWidth:300}} >
             <h3 className='opacity-75'>LogIn Account</h3>
             <form onSubmit={loginSubmit}>
                 <div className="input-group mb-3">

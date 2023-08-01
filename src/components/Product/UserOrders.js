@@ -56,7 +56,7 @@ const UserOrders = () => {
             <tbody>
                 {order?.orderItems?.map((item,i)=>(
                 <tr key={i}>
-                <td><img style={{width:40}} src={item?.product?.image?.url}/></td>
+                <td><img style={{width:40}} src={item?.product?.image?.url} alt='Product'/></td>
                 <td>{item?.product?.name}</td>
                 <td>{item?.product?.price}</td>
                 <td>{item?.quantity}</td>
