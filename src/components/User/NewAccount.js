@@ -8,7 +8,6 @@ import { toast } from 'react-toastify';
 import './NewAccount.css';
 import Layout from '../Layout/Layout.js';
 import { register } from '../../actions/userAction.js';
-import { useNavigate } from 'react-router-dom';
 
 
 const NewAccount = () => {
@@ -50,7 +49,6 @@ const NewAccount = () => {
 
 
         await dispatch(register(myForm));
-        toast.info("Account is created successfully");
         setNewUser({
             name:"",
             email:"",

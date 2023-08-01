@@ -45,11 +45,13 @@ export const register = (userData) => async(dispatch) =>{
         dispatch({type:REGISTER_REQUEST});
 
         await axios.post(`${URL_USER}/register`, userData);
+        toast.info("Account is created successfully");
 
         dispatch({type:REGISTER_SUCCESS});
         
     } catch (error) {
         dispatch({type:REGISTER_FAIL, payload:error.response.data.message});
+        toast.info("Account isn't created");
     };
 };
 
