@@ -7,7 +7,6 @@ import { RiLogoutBoxRLine, RiLoginBoxLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../actions/userAction';
 import { CgMenu } from 'react-icons/cg';
-import { toast } from 'react-toastify';
 
 const Header = () => {
   const [ btnToggle,setBtnToggle] = useState(false);
@@ -21,7 +20,6 @@ const Header = () => {
 
   const handleLogOut = async() =>{
     await dispatch(logout());
-    await toast.success("Log Out Successfully");
     setTimeout(()=>navigate("/"),500);
   };
 

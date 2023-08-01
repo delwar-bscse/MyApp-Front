@@ -98,10 +98,10 @@ export const logout = () => async(dispatch) =>{
     try {
         dispatch({type:LOGOUT_REQUEST});
 
-        await axios.get(`${URL_USER}/logout`,options);
-
         const keysToRemove = ["token","user","cart"];
         keysToRemove.forEach(k=>localStorage.removeItem(k));
+        await toast.success("Log Out Successfully");
+        await axios.get(`${URL_USER}/logout`,options);
 
         dispatch({type:LOGOUT_SUCCESS});
 
